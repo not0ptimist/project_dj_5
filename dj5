@@ -1,0 +1,9 @@
+# ставим Markdown(https://www.mkdocs.org/getting-started/)
+`pip install mkdocs`
+
+
+##[django-debug-toolbar](https://django-debug-toolbar.readthedocs.io/en/latest/installation.html)
+
+The Django Debug Toolbar is a configurable set of panels that display various debug information about the current request/response and when clicked, display more details about the panel’s content.
+
+`python3 -m pip install django-debug-toolbar`

@@ -1,0 +1,19 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Market{% endblock %}
+
+{% block content %}
+    <h1>This is the {{ me }} Garage</h1>
+    <center>
+    {% for car in list_car %}
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ car.concern }} {{ car.model }}</h5>
+                <p class="card-text">Малое описание машины</p>
+                <a href="{% url 'detail_car' car.id %}" class="btn btn-primary">Смотреть</a>
+            </div>
+            </div>
+    {% endfor %}
+    </center>
+{% endblock %}

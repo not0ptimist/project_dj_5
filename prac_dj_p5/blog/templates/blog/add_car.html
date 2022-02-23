@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Add new Car, your garage.{% endblock %}
+
+{% block content %}
+    <h1>Your add car...</h1>
+    <center>
+        {% if submitted %}
+            Your car Submitted Successfully
+        {% else %}
+            <form action="" method=POST enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-success"/>
+            </form>
+        {% endif %}
+    </center>
+{% endblock %}
