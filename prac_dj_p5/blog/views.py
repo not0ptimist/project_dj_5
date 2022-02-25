@@ -6,10 +6,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 
 # Create your views here. 
-def car_list(request):
-    pass
-
-# добавление авто в список, только супер пользователь
+# Добавление авто в список, только супер пользователь.
 def add_car(request):
     submitted = False
     if request.method == 'POST':
@@ -17,6 +14,7 @@ def add_car(request):
             form = CarForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
+                messages.success(request, "You add car")
                 return HttpResponseRedirect('add_car?submitted=True')
     else:
         form = CarForm
@@ -27,16 +25,16 @@ def add_car(request):
         'submitted': submitted,
     })
 
-# профиль пользователя с гаражем 
+# Профиль пользователя с гаражем.
 def profile_garage(request):
     if request.user.is_authenticated:
         me = request.user
-        my_car = Car.objects.filter(buyer=request.user)
+        my_car = Car.objects.filter(buyer=me).select_related('buyer')
         return render(request, 'blog/profile_garage.html', {
             "me": me,
             'my_car': my_car,
         })
 
-# базовая страница
+# Базовая страница.
 def base(request):
     return render(request, 'blog/index.html', {})

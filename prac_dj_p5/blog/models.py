@@ -10,12 +10,13 @@ class Car(models.Model):
     vin_car = models.CharField(max_length=15, unique=True)
     buyer = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
     horse_power =models.IntegerField()
-    engine_size = models.IntegerField(name="engine_size in cm3")
+    engine_size = models.IntegerField("engine_size in cm3")
 
     def __str__(self):
         return self.model
 
 
+# Модель водителя(пользователя), но лучше использовать встроенного User.
 class Driver(models.Model):
     description_driver = models.TextField(max_length=500)
     model_car = models.ForeignKey(Car, max_length=100, null=True, on_delete=models.SET_NULL)

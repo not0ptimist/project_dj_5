@@ -5,10 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="None">
-        
-        
+        <meta name="author" content="Егор">
+        <link rel="canonical" href="https://3Drive.ru/">
         <link rel="shortcut icon" href="img/favicon.ico">
-        <title>My Docs</title>
+        <title>3Drive</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/font-awesome.min.css" rel="stylesheet">
         <link href="css/base.css" rel="stylesheet">
@@ -23,10 +23,29 @@
     <body class="homepage">
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
-                <a class="navbar-brand" href=".">My Docs</a>
+                <a class="navbar-brand" href=".">3Drive</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
                 <!-- Expanded navigation -->
                 <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem active">
+                                <a href="." class="nav-link">index</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="settings.md" class="nav-link">settins</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="dev.md" class="nav-link">dev</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="pip/" class="nav-link">pip install</a>
+                            </li>
+                        </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                         <li class="nav-item">
@@ -34,6 +53,16 @@
                                 <i class="fa fa-search"></i> Search
                             </a>
                         </li>
+                            <li class="nav-item">
+                                <a rel="prev" class="nav-link disabled">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="pip/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -164,5 +193,5 @@ docs/
 
 <!--
 MkDocs version : 1.2.3
-Build Date UTC : 2022-02-19 20:23:32.506360+00:00
+Build Date UTC : 2022-02-25 14:48:12.476846+00:00
 -->

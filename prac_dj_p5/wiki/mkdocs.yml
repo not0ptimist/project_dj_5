@@ -1,1 +1,23 @@
 site_name: My Docs
+
+site_name: 3Drive
+
+dev_addr: 127.0.0.1:8090
+
+markdown_extension:
+    - pymdownx.highlight
+    - pymdownx.inlinehilite
+    - pymdownx.superfences
+    - pymdownx.snippets
+
+nav:
+
+    - index: index.md
+    - settins: settings.md
+    - dev: dev.md
+    - pip install: pip.md
+
+    - members_views: members/views.md
+    - forms: members/forms.md
+
+site_author: Егор

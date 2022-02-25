@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 from django import forms 
 
 
+# Форма Регистрации Пользователя
 class RegisterUserForm(UserCreationForm):
-    # https://docs.djangoproject.com/en/4.0/topics/auth/default/#django.contrib.auth.forms.UserCreationForm
-    # https://docs.djangoproject.com/en/4.0/ref/forms/widgets/#module-django.forms.widgets
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
     first_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'form-control'}))
     last_name = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class':'form-control'}))

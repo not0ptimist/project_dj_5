@@ -7,7 +7,7 @@ class Car(admin.ModelAdmin):
     list_display = ['concern', 'model', 'year_release', 'buyer']
     search_fields = ('model', 'vin_car')
 
-
+# Register Driver.
 @admin.register(Driver)
 class Driver(admin.ModelAdmin):
     list_display = ['name_driver', 'model_car']
