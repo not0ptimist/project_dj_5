@@ -6,7 +6,7 @@ from .models import Car, Driver
 class CarForm(ModelForm):
     class Meta:
         model = Car
-        fields = ("concern", "model", "year_release", "vin_car", "buyer", "horse_power", "engine_size")
+        fields = ("concern", "model", "year_release", "vin_car", "buyer", "horse_power", "engine_size", "foto_car")
         widgets = {
             'concern': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'concern'}),
             'model': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'model'}),

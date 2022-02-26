@@ -6,9 +6,11 @@
 {% csrf_token %}
     <h1>This is the {{ detail.concern }} Garage</h1>
     <center>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card" style="width: 28rem;">
             <div class="card-body">
+                {% if detail.foto_car %} 
+                    <img src="{{ detail.foto_car.url }}" width="330">
+                {% endif %}
                 <h5 class="card-title">{{ detail.concern }} {{ detail.model }}</h5>
                 <p class="card-text">VIN: {{ detail.vin_car }}</p>
                 <p class="card-text">HorsePower: {{ detail.horse_power }}</p>

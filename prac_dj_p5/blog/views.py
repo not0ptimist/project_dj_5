@@ -29,9 +29,10 @@ def add_car(request):
 def profile_garage(request):
     if request.user.is_authenticated:
         me = request.user
-        my_car = Car.objects.filter(buyer=me).select_related('buyer')
+        car = Car.objects.filter(buyer=me)
+        my_car = car.select_related('buyer')
         return render(request, 'blog/profile_garage.html', {
-            "me": me,
+            "car": car,
             'my_car': my_car,
         })
 

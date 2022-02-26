@@ -11,6 +11,7 @@ class Car(models.Model):
     buyer = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
     horse_power =models.IntegerField()
     engine_size = models.IntegerField("engine_size in cm3")
+    foto_car = models.ImageField(blank=True, null=True, upload_to='images/car/', default= 'media/images/car/def-carPhoto.jpeg',)
 
     def __str__(self):
         return self.model

@@ -3,15 +3,21 @@
 {% block title %}Garage{% endblock %}
 
 {% block content %}
-    <h1>This is the {{ me }} Garage</h1>
     <center>
+    <h1>This is the {{ me }} Garage</h1>
     {% for car in my_car %}
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+        <div class="card" style="width: 28rem;">
             <div class="card-body">
+                {% if car.foto_car %} 
+                    <img src="{{ car.foto_car.url }}" width="330">
+                {% endif %}
+                <div class="card-body">
                 <h5 class="card-title">{{ car.concern }} {{ car.model }}</h5>
                 <p class="card-text">Малое описание машины</p>
-                <a href="#" class="btn btn-primary">Смотреть</a>
+                <div class="col">
+                    <a href="#" class="btn btn-primary">Смотреть</a>
+                    <a href="#" class="btn btn-danger">Продать</a>
+                </div>
             </div>
             </div>
     {% endfor %}
