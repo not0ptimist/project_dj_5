@@ -19,13 +19,17 @@ def buy_car(request, id_car):
 # Detail auto
 def detail_car(request, id_car):
     detail = Car.objects.get(pk=id_car)
+    driver = request.user
     return render(request, 'market/detail_car.html', {
         'detail': detail,
+        'driver': driver,
         })
 
 # Список машин которые свободные, их можно купить
 def market(request):
     list_car = Car.objects.filter(buyer=None).select_related('buyer')
+    driver = request.user
     return render(request, 'market/market.html', {
-        'list_car': list_car
+        'list_car': list_car,
+        'driver': driver,
         })

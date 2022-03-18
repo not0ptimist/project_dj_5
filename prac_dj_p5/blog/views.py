@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from lib2to3.pgen2 import driver
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from .models import Car, Driver
 from .forms import CarForm
@@ -26,16 +27,23 @@ def add_car(request):
     })
 
 # Профиль пользователя с гаражем.
-def profile_garage(request):
+def profile_garage(request, id_driver):
     if request.user.is_authenticated:
-        me = request.user
-        car = Car.objects.filter(buyer=me)
+        driver = User.objects.get(id=id_driver)
+        car = Car.objects.filter(buyer=driver)
         my_car = car.select_related('buyer')
-        return render(request, 'blog/profile_garage.html', {
-            "car": car,
-            'my_car': my_car,
-        })
+    else:
+        messages.success(request, "You aren't autorized")
+        return redirect('login')
+    return render(request, 'blog/profile_garage.html', {
+        'my_car': my_car,
+        'driver': driver,
+    })
+
 
 # Базовая страница.
 def base(request):
-    return render(request, 'blog/index.html', {})
+    driver = request.user
+    return render(request, 'blog/index.html', {
+        'driver': driver,
+    })
